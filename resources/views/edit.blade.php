@@ -1,18 +1,12 @@
-
 @extends("create", [
   "author" => $author,
-  "variable" => "verificationdan geliyom"
 ])
 
+@section("edit_success_message")
 
-
-
-@section("success_message")
-
-  <b>{{$author->name}}</b> with the id <strong>{{$author->id}}</strong> has been successfully added into the database!
+  <b>{{$author->name}}</b> with the id <strong>{{$author->id}}</strong> has been successfully edited in the database!
 
 @endsection
-
 
 @section("delete_form")
 
@@ -23,8 +17,3 @@
   </form>
 
 @endsection
-
-
-
-
-

@@ -7,26 +7,38 @@
 </head>
 <body>
 
-  
+@if ($author->name !== null)
+
+  <form action="{{ action('PageController@edit', ['id_variable' => $author->id]) }}" method="post">
+
+@else
 
   <form action="{{ action('PageController@store') }}" method="post">
 
+@endif
+
+
   @csrf
     <div>
-      <!-- <p>{{ $variable ?? '' }222222}</p> -->
+      
       <p style="color:green">@yield("success_message")</p>
       @yield("delete_success_message")
+      @yield("edit_success_message")
 
       <p>Name of the author</p>
-      <input type="text" name="authorname">
+      <input type="text" name="authorname" value="{{ $author->name ?? ''}}">
       <!-- <p>Surname of the author</p>
       <input type="text" name="authorsurname"> -->
-      <input type="submit">
+      <input type="submit" value="save">
     </div>
-  </form>
-  
-  @yield("delete_form")
 
+
+  </form>
+
+
+
+@yield("delete_form")
+  
   
 
 </body>
