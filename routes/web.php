@@ -19,4 +19,9 @@ Route::get("/author/create", "PageController@create");
 
 Route::post("/author", "PageController@store");
 
+// Route::post("/author/delete/{id}", "PageController@delete");
+
 // Route::post("/author/{variable}/edit", "PageController@store");
+
+Route::post("/author/delete/{id_variable}", "PageController@delete");
+

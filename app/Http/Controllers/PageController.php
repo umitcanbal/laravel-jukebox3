@@ -18,8 +18,21 @@ class PageController extends Controller
         
         $author->save();
         
-        return view("create");
+        return view("verification", compact("author"));
         // return redirect("author/".$author->id."/edit");
     }
+
+    // public function delete($id) {
+    //     $author = Author::findOrFail($id);
+    //     $author->delete();
+    // }
+
+    public function delete($variable) {
+        
+        $author = Author::findOrFail($variable);
+        $author->delete();
+        return view("delete", compact("author"));
+    }
+
 }
 
