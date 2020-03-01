@@ -23,10 +23,13 @@ class PageController extends Controller
     }
 
     public function store(Request $request) {
-        
+        $this->validate($request, [
+            "authorname" => "required"
+        ]);
         $author = new Author;
         $author->name = $request->input("authorname");
         $author->save();
+        session()->flash('success_message', 'OLDUU!');
         return redirect("author/{$author->id}/edit");
     }
 
@@ -36,9 +39,13 @@ class PageController extends Controller
     }
 
     public function update(Request $request, $id) {
+        $this->validate($request, [
+            "authorname" => "required"
+        ]);
         $author = Author::findOrFail($id);
         $author->name = $request->input("authorname");
         $author->save();
+        session()->flash('success_message', 'EDIT OLDUU!');
         return redirect("author/{$author->id}/edit");
     }
 
